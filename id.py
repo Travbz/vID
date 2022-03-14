@@ -25,7 +25,7 @@ inputtxt.pack()
 def generate_unique_id() -> str:
     """
     :params company_name 
-    :return a unique 12 character ID based on the named from the input
+    :return a  ID based on the named from the input
     """
     
     global unique_key
