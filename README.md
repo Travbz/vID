@@ -15,7 +15,7 @@ Contributions and forks very welcomed. Please star this repo if you like this pr
 </p>
 
 ## The desktop name converter:
-![Demo Image]('vID_demo.png')
+![Demo Image](vID_demo.png "vID")
 
 ## Installation
 
