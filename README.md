@@ -20,7 +20,7 @@ Contributions and forks very welcomed. Please star this repo if you like this pr
 ## Installation
 
 <p>
-Details coming soon, still configuring the .exe
+Details coming soon, still configuring the .exe, for now youll have to have a pyhton environment to use this tool.
 
 </p>
 
