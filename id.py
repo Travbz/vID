@@ -34,17 +34,7 @@ def generate_unique_id() -> str:
     noChar = noChar.replace(" OF ", " ")
     noChar = noChar.replace("THE ","")
     noChar = noChar.replace(" THE "," ")
-    noChar = noChar.replace(" AND " , " ")
-    noChar = noChar.replace("-","")
-    noChar = noChar.replace("_","")
-    noChar = noChar.replace("." , "")
-    noChar = noChar.replace("," , "")
-    noChar = noChar.replace("'" , "")
-    noChar = noChar.replace("&" , "")
-    noChar = noChar.replace("(" , "")
-    noChar = noChar.replace(")" , "")
-    noChar = noChar.replace("*" , "")
-    noChar = noChar.replace(";" , "")    
+    noChar = noChar.replace(" AND " , " ")  
     noChar = noChar.upper()
     unique_key = ''
     name_list = company.split(' ')
@@ -115,8 +105,12 @@ copyButton = tk.Button(frame,
                 font="ariel 20 bold")
 copyButton.pack(side='top')
 
-frame.call('wm','iconphoto',frame._w,tk.PhotoImage(file='images/ID.png'))
-
+datafile = "images/ID.ico" 
+if not hasattr(sys, "frozen"):
+    datafile = os.path.join(os.path.dirname(__file__), datafile) 
+else:  
+    datafile = os.path.join(sys.prefix, datafile)
+frame.iconbitmap(default=datafile)
 
 
 # Label Creation
