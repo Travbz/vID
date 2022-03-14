@@ -1,12 +1,12 @@
 import tkinter as tk
 from tkinter import *
-from tkinter.ttk import *
 
 # Top level window
 frame = tk.Tk()
-frame.title("Vendor ID")
+frame.title("vID")
 frame.geometry('1400x650')
 
+# First labels
 myLabel = tk.Label(frame, text="Enter a name here", font='Ariel 30 bold')
 myLabel.pack()
 myLabel2 = tk.Label(frame, text="Please be sure the spelling is correct", font='Ariel 20 bold')
@@ -17,33 +17,29 @@ inputtxt = tk.Text(frame,
                    height = 3,
                    width = 60,
                    font='ariel 20 bold')
-  
 inputtxt.pack()
 
 # slice unique id
-
 def generate_unique_id() -> str:
     """
     :params company_name 
-    :return a  ID based on the named from the input
+    :return an ID based on the name from the input
     """
-    
     global unique_key
-    company = inputtxt.get(1.0, "end-1c")
-    noChar = company
-    noChar = noChar.replace(" OF ", " ")
-    noChar = noChar.replace("THE ","")
-    noChar = noChar.replace(" THE "," ")
-    noChar = noChar.replace(" AND " , " ")  
-    noChar = noChar.upper()
     unique_key = ''
-    name_list = company.split(' ')
-    new_name_list = []
+    company_name = inputtxt.get(1.0, "end-1c")
+    company_name = company_name.upper()
+    
+    # remove designated 'stop' words from name
+    for char in (("THE ", ""), (" THE ", " "), (" AND ", " "), (" OF ", " ")):
+        company_name= company_name.replace(*char)
+        company = company_name
+    name_list = company_name.split(' ')
     wordCount = len(name_list)
+    new_name_list = []
 
     for name in name_list:
         new_name_list.append(''.join(ch.upper() for ch in name if ch.isalnum()))
-    
     
     if wordCount == 1:
         unique_key = new_name_list[0][0:8]
@@ -60,11 +56,11 @@ def generate_unique_id() -> str:
     if len(unique_key) <= 8:
         unique_key += 'x' * (8 - len(unique_key))
 
-    hash_number = str(hash(company.upper()))[1:3]
+    hash_number = str(hash(unique_key.upper()))[1:3]
     unique_key += hash_number
 
     lbl.config(text = "ID: " + unique_key, font="ariel 20 bold")
-    lbl2.config(text= "Company: " + noChar, font='ariel 20 bold')
+    lbl2.config(text= "Company: " + company, font='ariel 20 bold')
 
 # copy output to clipboard
 def copy():
@@ -74,14 +70,7 @@ def copy():
     # text from clipboard
     clip_text = frame.clipboard_get()
     lbl3.config(text= f"Copied: {unique_key} to your clipboard.." , font='ariel 20 bold')
-
     print(f'Unique Key Copied to clipboard', clip_text)
-
-
-
- 
-
-
 
 #Define a function to clear the Entry Widget Content
 def clear_text():
@@ -93,25 +82,17 @@ clear = tk.Button(frame, bg='light yellow', text="Delete All", command=clear_tex
 # Button Creation
 printButton = tk.Button(frame,
                         bg= "light blue",
-                        text = "Generate UniqueID", 
+                        text = "Generate ID", 
                         font="ariel 20 bold",
                         command = generate_unique_id)
 printButton.pack(side='top')
 
 copyButton = tk.Button(frame, 
                 bg="yellow",
-                text='Copy UniqueId',
+                text='Copy Id',
                 command=copy,
                 font="ariel 20 bold")
 copyButton.pack(side='top')
-
-datafile = "images/ID.ico" 
-if not hasattr(sys, "frozen"):
-    datafile = os.path.join(os.path.dirname(__file__), datafile) 
-else:  
-    datafile = os.path.join(sys.prefix, datafile)
-frame.iconbitmap(default=datafile)
-
 
 # Label Creation
 lbl = tk.Label(frame, text = "")
@@ -121,5 +102,8 @@ lbl2.pack()
 lbl3 = tk.Label(frame, text = "")
 lbl3.pack()
 
+frame.tk.call('wm', 'iconphoto', frame._w, tk.PhotoImage(file='images/ID.png'))
+
+# run loop
 frame.mainloop()
 
