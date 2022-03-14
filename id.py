@@ -115,7 +115,7 @@ copyButton = tk.Button(frame,
                 font="ariel 20 bold")
 copyButton.pack(side='top')
 
-frame.call('wm','iconphoto',frame._w,tk.PhotoImage(file='ID.png'))
+frame.call('wm','iconphoto',frame._w,tk.PhotoImage(file='images/ID.png'))
 
 
 
