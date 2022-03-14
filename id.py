@@ -20,7 +20,7 @@ inputtxt = tk.Text(frame,
 inputtxt.pack()
 
 # slice unique id
-def generate_unique_id() -> str:
+def generate_unique_id(company_name) -> str:
     """
     :params company_name 
     :return an ID based on the name from the input
@@ -57,7 +57,7 @@ def generate_unique_id() -> str:
         unique_key += 'x' * (8 - len(unique_key))
 
     hash = 0    
-    for ch in unique_key:
+    for ch in company_name:
         hash = ( hash*281  ^ ord(ch)*997) & 0xFFFFFFFF
     hash_number = str(hash)
     
@@ -77,22 +77,24 @@ def copy():
     print(f'Unique Key Copied to clipboard', clip_text)
 
 #Define a function to clear the Entry Widget Content
-def clear_text():
+def clear_text(event):
    inputtxt.delete('1.0', 'end')
    generate_unique_id()
-   
-clear = tk.Button(frame, bg='light yellow', text="Delete All", command=clear_text, font=('Ariel 20 bold')).pack(side='bottom')
+
+frame.bind('<Return>', generate_unique_id)
+
+clear = tk.Button(frame, bg='navajowhite2', text="Delete All", command=clear_text, font=('Ariel 20 bold')).pack(side='bottom')
 
 # Button Creation
 printButton = tk.Button(frame,
-                        bg= "light blue",
+                        bg= "skyblue2",
                         text = "Generate ID", 
                         font="ariel 20 bold",
                         command = generate_unique_id)
 printButton.pack(side='top')
 
 copyButton = tk.Button(frame, 
-                bg="yellow",
+                bg="gold2",
                 text='Copy Id',
                 command=copy,
                 font="ariel 20 bold")
