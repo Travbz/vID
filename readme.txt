@@ -3,19 +3,19 @@
 ## Summary
 
 <p>
-    vID is a string slicing tool that slices the words in a name-string,
+vID is a string slicing tool that slices the words in a name-string,
 concatonates the sub-strings, hashes the unique sub-strings,
 and concatonates a few numbers generated from the sub-strings unique hash.
 If you enter a string the same way each time, it will return the same unique id. 
 If a string does not contain enough sub-strings to satisfy the conditions, placeholder 'x' is used.
 
-    vID comes in two flavors. One flavor is a desktop app that slices a single name and returns a unique id. 
+vID comes in two flavors. One flavor is a desktop app that slices a single name and returns a unique id. 
 The other is a .ipynb file that reads a csv or xlsx file, and converts an entire column of names to unique id's.    
 Contributions and forks very welcomed. Please star this repo if you like this project :)
 </p>
 
 ## The desktop name converter:
-![Demo Image]('vID_demo.png' "vID Desktop GUI")
+![Demo Image]('vID_demo.png')
 
 ## Installation
 
@@ -45,9 +45,8 @@ Details coming soon, still configuring the .exe
 <li>After 8 characters have been sliced they are passed as a key to a hashing function which returns their hash value</li>
 <ls>The 2nd to the 4th hash values are concatonated onto the 8 character unique string id:</ls>
 <li>If the name was <=7 characters either before or after slicing, a lowercase placeholder value was added for readability</li>
-<ol>
-<li>In this instance I chose "x" as a placeholder but that can be easily changed in the script</li>
-<ol>
+<li> I chose "x" as a placeholder but that can be easily changed in the script</li>
+
 </ol>
 
 ### To change the placeholder update the code below. Replace the 'x' in " unique_key += 'x' " with the character you want as your placeholder.
