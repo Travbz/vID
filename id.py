@@ -20,7 +20,7 @@ inputtxt = tk.Text(frame,
 inputtxt.pack()
 
 # slice unique id
-def generate_unique_id(company_name) -> str:
+def generate_unique_id() -> str:
     """
     :params company_name 
     :return an ID based on the name from the input
@@ -81,7 +81,10 @@ def clear_text(event):
    inputtxt.delete('1.0', 'end')
    generate_unique_id()
 
-frame.bind('<Return>', generate_unique_id)
+def push_enter(inputtxt):
+    generate_unique_id()
+
+frame.bind('<Return>', push_enter)
 
 clear = tk.Button(frame, bg='navajowhite2', text="Delete All", command=clear_text, font=('Ariel 20 bold')).pack(side='bottom')
 
