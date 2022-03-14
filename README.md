@@ -68,7 +68,7 @@ Details coming soon, still configuring the .exe, for now you'll have to have a p
 <ol>
 <ls>You mush also change some code in this file to point at the column you have that contains your names.</ls>
 <ol>
-<ls>Cell 4, line 5: "keys_list.append(generate_unique_id(row[" <Your name column's name here>  "]))" is the location of that command</ls>
+<ls>Cell 4, line 5: "keys_list.append(generate_unique_id(row[" 'Your name column's name here'  "]))" is the location of that command</ls>
 </ol>
 
 
