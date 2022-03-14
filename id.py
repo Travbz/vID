@@ -55,9 +55,13 @@ def generate_unique_id() -> str:
     
     if len(unique_key) <= 8:
         unique_key += 'x' * (8 - len(unique_key))
-
-    hash_number = str(hash(unique_key.upper()))[1:3]
-    unique_key += hash_number
+        
+    hash = 0    
+    for ch in unique_key:
+        hash = ( hash*281  ^ ord(ch)*997) & 0xFFFFFFFF
+    hash_number = str(hash)
+    
+    unique_key += hash_number[0:3]
 
     lbl.config(text = "ID: " + unique_key, font="ariel 20 bold")
     lbl2.config(text= "Company: " + company, font='ariel 20 bold')
