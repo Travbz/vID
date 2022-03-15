@@ -73,31 +73,3 @@ Details coming soon, still configuring the .exe, for now you'll have to have a p
 <ol>
 </ol>
 
-### To change the placeholder update the code below. Replace the 'x' in " unique_key += 'x' " with the character you want as your placeholder.
-### The code is on line 30 in the "id_4_csv.ipynb" file.
-
-### It looks like this:
-```python
-    if len(unique_key) <= 8:
-        unique_key += 'x' * (8 - len(unique_key))
-```
-
-## To use the csv parser you must make a few changes to this code to declare the path and name of your file, and the name of your column.
-
-
-### The best thing to do is rename your file to "company.xlsx" and move it to the "csv_parser" folder, otherwise follow the steps below
-
-### You must change the name of the "read_excel('company.csv')" to the filepath and/or name of your excel file
-
-### You mush also change some code in this file to point at the column you have that contains your names.
-
-### Cell 4, line 5: "keys_list.append(generate_unique_id(row[" 'Your name column's name here'  "]))" is the location of that command
-
-
-
-###  Change the code below to point at your names column:
-
-```python
-        keys_list.append(generate_unique_id(row[" <Your name column's name here>  "]))
-```
-### After youve updated the name column name you can run the cells and generate unique Ids for every value in your names column.
