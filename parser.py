@@ -26,20 +26,20 @@ file_frame = tk.LabelFrame(root, text="Open File", font="ariel 20 bold")
 file_frame.pack(expand=True, ipady=100, fill='x', side='left')
 
 # Buttons
-idBtn = tk.Button(file_frame, bg= "grey16", fg='linen', text="SingleID", command=lambda: openid(), font="ariel 20 bold")
-idBtn.pack(side='left', padx=10, pady=5)
+singleIdBtn = tk.Button(file_frame, bg= "grey16", fg='linen', text="SingleID", command=lambda: openid(), font="ariel 20 bold")
+singleIdBtn.pack(side='left', padx=10, pady=5)
 
-button1 = tk.Button(file_frame, bg= "skyblue2", text="Browse A File", command=lambda: File_dialog(), font="ariel 20 bold")
-button1.pack(side='left', padx=10, pady=5)
+fileBrowserBtn = tk.Button(file_frame, bg= "skyblue2", text="Browse A File", command=lambda: File_dialog(), font="ariel 20 bold")
+fileBrowserBtn.pack(side='left', padx=10, pady=5)
 
 clearBtn = tk.Button(file_frame, text='Clear Window',bg= "coral3", font="ariel 20 bold",command=lambda: clear_data())
 clearBtn.pack(side="left", padx=10, pady=5) 
 
-parse_Btn = tk.Button(file_frame, text="Save As",bg= "medium sea green", font="ariel 20 bold",command= lambda:save_excel(df))
-parse_Btn.pack(side="right", padx=10, pady=5)
+saveBtn = tk.Button(file_frame, text="Save As",bg= "medium sea green", font="ariel 20 bold",command= lambda:save_excel(df))
+saveBtn.pack(side="right", padx=10, pady=5)
 
-submit_button = tk.Button(file_frame, text="Generate ID's",bg= "wheat1", font="ariel 20 bold",command=lambda: set_col_name())
-submit_button.pack(side="right", padx=10, pady=5) 
+generateIDBtn = tk.Button(file_frame, text="Generate ID's",bg= "wheat1", font="ariel 20 bold",command=lambda: set_col_name())
+generateIDBtn.pack(side="right", padx=10, pady=5) 
 
 # The file/file path text
 label_file = ttk.Label(file_frame, text="No File Selected",font="ariel 20 bold")
@@ -59,10 +59,8 @@ tv1.configure(xscrollcommand=treescrollx.set, yscrollcommand=treescrolly.set) # 
 treescrollx.pack(side="bottom", fill="x") # make the scrollbar fill the x axis of the Treeview widget
 treescrolly.pack(side="right", fill="y") # make the scrollbar fill the y axis of the Treeview widget
 
-
 def File_dialog():
     root.update()
-
     """This Function will open the file explorer and assign the chosen file path to label_file"""
     filename = filedialog.askopenfilename(initialdir="/", title="Select A File", filetypes =(("xlsx files", "*.xlsx"),("All Files", "*.*")))
     label_file["text"] = filename
@@ -105,8 +103,7 @@ def Load_excel_data():
 def generate_unique_id(company_name: str) -> str:
     """
     :params company_name 
-    :return a unique 12 character ID based on the named from the input
-    
+    :return a unique 12 character ID based on the named from the input  
     """
     global unique_key
     global company
@@ -115,7 +112,6 @@ def generate_unique_id(company_name: str) -> str:
     for char in (("THE ", ""), (" THE ", " "), (" AND ", " "), (" OF ", " ")):
         company_name = company_name.replace(*char)
         company = company_name
-
     new_name_list = []
     name_list = company_name.split(' ')
     wordCount = len(name_list)
@@ -232,7 +228,6 @@ def openid():
         """
         :params company_name 
         :return a unique 12 character ID based on the named from the input
-        
         """
         global unique_key
         global myID
@@ -287,8 +282,7 @@ def openid():
         whoamID.destroy()
         copied.destroy()
     clear = tk.Button(id, bg='navajowhite2', text="Delete All", command=lambda:clear_text(), font=('Ariel 20 bold')).pack(side='bottom')
-
-        
+       
     # copy output to clipboard
     def copy():
         global copied
@@ -300,23 +294,19 @@ def openid():
         copied = tk.Label(id, text= f"Copied: {unique_key} to your clipboard.." , font='ariel 20 bold')
         copied.pack()
      
-
-
     def push_enter(inputtxt):
         gen_id()
 
     id.bind('<Return>', push_enter)
 
-    
-
     # Button Creation
     name = str(inputtxt)
-    printButton = tk.Button(id,
+    genSingleIdBtn = tk.Button(id,
                             bg= "skyblue2",
                             text = "Generate ID", 
                             font="ariel 20 bold",
                             command =lambda: gen_id())
-    printButton.pack(side='top')
+    genSingleIdBtn.pack(side='top')
 
     copyButton = tk.Button(id, 
                     bg="gold2",
@@ -324,10 +314,6 @@ def openid():
                     command=copy,
                     font="ariel 20 bold")
     copyButton.pack(side='top')
-
-    # Label Creation
-
-
 
 root.tk.call('wm', 'iconphoto', root._w, tk.PhotoImage(file='images/ID.png'))
 
