@@ -15,41 +15,75 @@ height= root.winfo_screenheight()
 #setting tkinter window size
 root.geometry("%dx%d" % (width, height))
 # set some global vars
-global df
-global unique_key
+
 # Frame for TreeView
-frame1 = tk.LabelFrame(root, text="Unique ID Generator for .CSV and .XLSX",  font="ariel 30 bold")
+frame1 = tk.LabelFrame(root, 
+                    text="Unique ID Generator for .CSV and .XLSX",
+                    font="ariel 30 bold")
 frame1.pack(expand=True, fill='both', side='top')
 
 # Frame for open file dialog
-file_frame = tk.LabelFrame(root, text="Open File", font="ariel 20 bold")
+file_frame = tk.LabelFrame(root,
+                    text="Open File", 
+                    font="ariel 20 bold")
 file_frame.pack(expand=True, ipady=100, fill='x', side='left')
 
 # Buttons
-singleIdBtn = tk.Button(file_frame, bg= "grey16", fg='linen', text="SingleID", command=lambda: openid(), font="ariel 20 bold")
+singleIdBtn = tk.Button(file_frame,
+                    bg= "grey16",
+                    fg='linen',
+                    text="SingleID",
+                    command=lambda: openid(),
+                    font="ariel 20 bold")
 singleIdBtn.pack(side='left', padx=10, pady=5)
 
-fileBrowserBtn = tk.Button(file_frame, bg= "skyblue2", text="Browse A File", command=lambda: File_dialog(), font="ariel 20 bold")
+fileBrowserBtn = tk.Button(file_frame,
+                    bg= "skyblue2",
+                    text="Browse A File",
+                    command=lambda: File_dialog(),
+                    font="ariel 20 bold")
 fileBrowserBtn.pack(side='left', padx=10, pady=5)
 
-clearBtn = tk.Button(file_frame, text='Clear Window',bg= "coral3", font="ariel 20 bold",command=lambda: clear_data())
+clearBtn = tk.Button(file_frame,
+                    text='Clear Window',
+                    bg= "coral3",
+                    font="ariel 20 bold",
+                    command=lambda: clear_data())
 clearBtn.pack(side="left", padx=10, pady=5) 
 
-saveBtn = tk.Button(file_frame, text="Save As",bg= "medium sea green", font="ariel 20 bold",command= lambda:save_excel(df))
+saveBtn = tk.Button(file_frame,
+                    text="Save As",
+                    bg= "medium sea green",
+                    font="ariel 20 bold",
+                    command= lambda:save_excel(df))
 saveBtn.pack(side="right", padx=10, pady=5)
 
-generateIDBtn = tk.Button(file_frame, text="Generate ID's",bg= "wheat1", font="ariel 20 bold",command=lambda: set_col_name())
+generateIDBtn = tk.Button(file_frame,
+                    text="Generate ID's",
+                    bg= "wheat1", 
+                    font="ariel 20 bold",
+                    command=lambda: set_col_name())
 generateIDBtn.pack(side="right", padx=10, pady=5) 
 
 # The file/file path text
-label_file = ttk.Label(file_frame, text="No File Selected",font="ariel 20 bold")
+label_file = ttk.Label(file_frame,
+                    text="No File Selected",
+                    font="ariel 20 bold")
 label_file.pack(side='top')
 
 ## Treeview Widget
 style = ttk.Style()
-style.configure("mystyle.Treeview", highlightthickness=0, bd=0, font=('Calibri', 14)) # Modify the font of the body
-style.configure("mystyle.Treeview.Heading", font=('Calibri', 14,'bold')) # Modify the font of the headings
-style.layout("mystyle.Treeview", [('mystyle.Treeview.treearea', {'sticky': 'nswe'})]) # Remove the borders
+style.configure("mystyle.Treeview",
+                    highlightthickness=0,
+                    bd=0,
+                    font=('Calibri', 14)) # Modify the font of the body
+style.configure("mystyle.Treeview.Heading",
+                    font=('Calibri',
+                    14,'bold')) # Modify the font of the headings
+style.layout("mystyle.Treeview",
+                    [('mystyle.Treeview.treearea',
+                    {'sticky': 'nswe'})]) # Remove the borders
+
 tv1 = ttk.Treeview(frame1, style ="mystyle.Treeview" )
 tv1.place(relheight=1, relwidth=1) # set the height and width of the widget to 100% of its container (frame1).
 
@@ -212,9 +246,13 @@ def openid():
     id.geometry('1400x650')
 
     # First labels
-    myLabel = tk.Label(id, text="Enter a name here", font='Ariel 30 bold')
+    myLabel = tk.Label(id,
+                        text="Enter a name here",
+                        font='Ariel 30 bold')
     myLabel.pack()
-    myLabel2 = tk.Label(id, text="Please be sure the spelling is correct", font='Ariel 20 bold')
+    myLabel2 = tk.Label(id, 
+                        text="Please be sure the spelling is correct",
+                        font='Ariel 20 bold')
     myLabel2.pack()
 
     # TextBox Creation
@@ -269,9 +307,13 @@ def openid():
             hash = ( hash*281  ^ ord(ch)*997) & 0xFFFFFFFF
         hash_number = str(hash)
         unique_key += hash_number[1:3]
-        myID = tk.Label(id, text = "ID: " + unique_key, font="ariel 20 bold")
+        myID = tk.Label(id,
+                         text = "ID: " + unique_key,
+                         font="ariel 20 bold")
         myID.pack()
-        whoamID = tk.Label(id, text= "Company: " + company, font='ariel 20 bold')
+        whoamID = tk.Label(id,
+                             text= "Company: " + company,
+                              font='ariel 20 bold')
         whoamID.pack()
         return unique_key
 
@@ -281,7 +323,12 @@ def openid():
         myID.destroy()
         whoamID.destroy()
         copied.destroy()
-    clear = tk.Button(id, bg='navajowhite2', text="Delete All", command=lambda:clear_text(), font=('Ariel 20 bold')).pack(side='bottom')
+
+    clearBtn = tk.Button(id, bg='navajowhite2',
+                         text="Delete All",
+                         command=lambda:clear_text(),
+                         font=('Ariel 20 bold'))
+    clearBtn.pack(side='bottom')
        
     # copy output to clipboard
     def copy():
@@ -291,7 +338,9 @@ def openid():
         id.clipboard_append(unique_key)
         # text from clipboard
         clip_text = id.clipboard_get()
-        copied = tk.Label(id, text= f"Copied: {unique_key} to your clipboard.." , font='ariel 20 bold')
+        copied = tk.Label(id,
+                         text= f"Copied: {unique_key} to your clipboard.." ,
+                          font='ariel 20 bold')
         copied.pack()
      
     def push_enter(inputtxt):
@@ -318,9 +367,3 @@ def openid():
 root.tk.call('wm', 'iconphoto', root._w, tk.PhotoImage(file='images/ID.png'))
 
 root.mainloop()
-
-
-
-    
-
-    
