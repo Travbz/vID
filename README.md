@@ -15,7 +15,7 @@ If a string does not contain enough sub-strings to satisfy the conditions, place
 
 
 ## vID makes it easy to read a csv or xlix file and convert an entire column of name values to unique id's. 
-![Demo Image](images/dualWindows.png  "vID")
+![Demo Image](images/selectCol.png  "vID")
 <ol>
 <li>Click "Browse A File" to open a file explorer</li>
 <li>Select the .csv or .xlix file that contains the name column for which you want to generate ID's </li>
