@@ -16,22 +16,22 @@ If a string does not contain enough sub-strings to satisfy the conditions, place
 ## FOr a single ID:
 ![Demo Image](images/vIDSingle.png "vID")
 <ol>
-<ls>The "SingleID" button opens a dialog box that askes you to input a name.</ls>
-<ls>Enter the name you want to generate a unique ID for then press "Generate ID"</ls>
-<ls>The name and new ID will be displayed below the textbox</ls>
-<ls>Push "Copy ID" to copy the new ID to your clipboard</ls>
-<ls>"Delete All" clears all fields so you can run another name</ls>
+<li>The "SingleID" button opens a dialog box that askes you to input a name.</li>
+<li>Enter the name you want to generate a unique ID for then press "Generate ID"</li>
+<li>The name and new ID will be displayed below the textbox</li>
+<li>Push "Copy ID" to copy the new ID to your clipboard</li>
+<li>"Delete All" clears all fields so you can run another name</li>
 </ol>
 
-## vID makes it easy to read a csv or xlsx file and convert an entire column of name values to unique id's. 
+## vID makes it easy to read a csv or xlix file and convert an entire column of name values to unique id's. 
 ![Demo Image](images/vIDCSV.png "vID")
 <ol>
-<ls>Click "Browse A File" to open a file explorer</ls>
-<ls>Select the .csv or .xlsx file that contains the name column for which you want to generate ID's </ls>
-<ls>Once you've selected a file, a new button "Select Column Name" appears.</ls>
-<ls>Click the "Select Column Name" button and select the column name for which you want to generate ID's</ls>
-<ls>Next, click "Generate ID's" and your new "UniqueID's" column will automagically append itself to the first position in your files column index.</ls>
-<ls>To Save As, click the "Save As" button desigante a filename and location in which to save your file. </ls>
+<li>Click "Browse A File" to open a file explorer</li>
+<li>Select the .csv or .xlix file that contains the name column for which you want to generate ID's </li>
+<li>Once you've selected a file, a new button "Select Column Name" appears.</li>
+<li>Click the "Select Column Name" button and select the column name for which you want to generate ID's</li>
+<li>Next, click "Generate ID's" and your new "UniqueID's" column will automagically append itself to the first position in your files column index.</li>
+<li>To Save As, click the "Save As" button desigante a filename and location in which to save your file. </li>
 </ol>
 
 
@@ -64,7 +64,7 @@ Details coming soon, still configuring the .exe, for now you'll have to have a p
 </ol>
 </ol>
 <li>After 8 characters have been sliced they are passed as a key to a hashing function which returns their hash value</li>
-<ls>The 2nd to the 4th hash values are concatonated onto the 8 character unique string id:</ls>
+<li>The 2nd to the 4th hash values are concatonated onto the 8 character unique string id:</li>
 <li>If the name was <=7 characters either before or after slicing, a lowercase placeholder value was added for readability</li>
 <ol>
 <li>In this instance I chose "x" as a placeholder but that can be easily changed in the script</li>
