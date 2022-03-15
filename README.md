@@ -49,7 +49,7 @@ Details coming soon, still configuring the .exe, for now you'll have to have a p
 ### vID:
 <ol>
 <li>Converts inputs to uppercase</li>
-<li>Removes all non alpha or numeric characters </li>
+<li>Removes all "stop words", non alpha, and  non numeric characters </li>
 <li>Counts the letters in the name</li>
 <li>Counts the words in the name</li>
 <li>slices the name according to the following convention: </li>
