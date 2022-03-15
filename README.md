@@ -8,15 +8,34 @@ concatonates the sub-strings, hashes the unique sub-strings,
 and concatonates a few numbers generated from the sub-strings unique hash.
 If you enter a string the same way each time, it will return the same unique id. 
 If a string does not contain enough sub-strings to satisfy the conditions, placeholder 'x' is used.
-
-vID comes in two flavors. One flavor is a desktop app that slices a single name, returns a unique id, and copies it to your clipboard.
-
-The other is a .ipynb file that reads a csv or xlsx file, and converts an entire column of names to unique id's.    
-Contributions and forks very welcomed. Please star this repo if you like this project :)
 </p>
 
+
+## vID comes as a .exe/desktop app. 
+
+## FOr a single ID:
+![Demo Image](images/vIDSingle.png "vID")
+<ls>The "SingleID" button opens a dialog box that askes you to input a name.</ls>
+<ls>Enter the name you want to generate a unique ID for then press "Generate ID"</ls>
+<ls>The name and new ID will be displayed below the textbox</ls>
+<ls>Push "Copy ID" to copy the new ID to your clipboard</ls>
+<ls>"Delete All" clears all fields so you can run another name</ls>
+
+
+## vID makes it easy to read a csv or xlsx file and convert an entire column of name values to unique id's. 
+![Demo Image](images/vIDCSV.png "vID")
+
+<ls>Click "Browse A File" to open a file explorer</ls>
+<ls>Select the .csv or .xlsx file that contains the name column for which you want to generate ID's </ls>
+<ls>Once you've selected a file, a new button "Select Column Name" appears.</ls>
+<ls>Click the "Select Column Name" button and select the column name for which you want to generate ID's</ls>
+<ls>Next, click "Generate ID's" and your new "UniqueID's" column will automagically append itself to the first position in your files column index.</ls>
+<ls>To Save As, click the "Save As" button desigante a filename and location in which to save your file. </ls>
+
+
+
 ## The desktop name converter:
-![Demo Image](images/vID_demo.png "vID")
+![Demo Image](images/dualWindows.png "vID")
 
 ## Installation
 
