@@ -11,7 +11,7 @@ If a string does not contain enough sub-strings to satisfy the conditions, place
 </p>
 
 
-## vID comes as a .exe/desktop app. 
+## vID will soon be a stand alone a desktop app, currently building the .exe
 
 
 ## vID makes it easy to read a csv or xlix file and convert an entire column of name values to unique id's. 
