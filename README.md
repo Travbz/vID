@@ -13,15 +13,6 @@ If a string does not contain enough sub-strings to satisfy the conditions, place
 
 ## vID comes as a .exe/desktop app. 
 
-## FOr a single ID:
-![Demo Image](images/vIDSingle.png "vID")
-<ol>
-<li>The "SingleID" button opens a dialog box that askes you to input a name.</li>
-<li>Enter the name you want to generate a unique ID for then press "Generate ID"</li>
-<li>The name and new ID will be displayed below the textbox</li>
-<li>Push "Copy ID" to copy the new ID to your clipboard</li>
-<li>"Delete All" clears all fields so you can run another name</li>
-</ol>
 
 ## vID makes it easy to read a csv or xlix file and convert an entire column of name values to unique id's. 
 ![Demo Image](images/vIDCSV.png "vID")
@@ -34,6 +25,15 @@ If a string does not contain enough sub-strings to satisfy the conditions, place
 <li>To Save As, click the "Save As" button desigante a filename and location in which to save your file. </li>
 </ol>
 
+## FOr a single ID:
+![Demo Image](images/vIDSingle.png "vID")
+<ol>
+<li>The "SingleID" button opens a dialog box that askes you to input a name.</li>
+<li>Enter the name you want to generate a unique ID for then press "Generate ID"</li>
+<li>The name and new ID will be displayed below the textbox</li>
+<li>Push "Copy ID" to copy the new ID to your clipboard</li>
+<li>"Delete All" clears all fields so you can run another name</li>
+</ol>
 
 ## The desktop name converter:
 ![Demo Image](images/dualWindows.png "vID")
