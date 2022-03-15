@@ -22,7 +22,7 @@ If a string does not contain enough sub-strings to satisfy the conditions, place
 <li>Once you've selected a file, a new button "Select Column Name" appears.</li>
 <li>Click the "Select Column Name" button and select the column name for which you want to generate ID's</li>
 <li>Next, click "Generate ID's" and your new "UniqueID's" column will automagically append itself to the first position in your files column index.</li>
-<li>To Save As, click the "Save As" button then desigante a filename and location in which to save your file. </li>
+<li>To Save As, click the "Save As" button then designate a filename and location in which to save your file. </li>
 </ol>
 
 ## FOr a single ID:
