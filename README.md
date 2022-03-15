@@ -8,6 +8,8 @@ concatonates the sub-strings, hashes the unique sub-strings,
 and concatonates a few numbers generated from the sub-strings unique hash.
 If you enter a string the same way each time, it will return the same unique id. 
 If a string does not contain enough sub-strings to satisfy the conditions, placeholder 'x' is used.
+
+vID backend is all python/pandas and the GUI is [tkinter](https://docs.python.org/3/library/tk.html)
 </p>
 
 
