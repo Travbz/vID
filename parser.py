@@ -175,7 +175,7 @@ def generate_unique_id(company_name: str) -> str:
     for ch in company_name:
         hash = ( hash*281  ^ ord(ch)*997) & 0xFFFFFFFF
     hash_number = str(hash)
-    unique_key += hash_number[1:3]
+    unique_key += hash_number[5:7]
     return unique_key
 
 def keyList(df, columnName):
@@ -306,7 +306,7 @@ def openid():
         for ch in company_name:
             hash = ( hash*281  ^ ord(ch)*997) & 0xFFFFFFFF
         hash_number = str(hash)
-        unique_key += hash_number[1:3]
+        unique_key += hash_number[5:7]
         myID = tk.Label(id,
                          text = "ID: " + unique_key,
                          font="ariel 20 bold")
