@@ -13,9 +13,6 @@ vID backend is all python/pandas and the GUI is [tkinter](https://docs.python.or
 </p>
 
 
-## vID will soon be a stand alone a desktop app, currently building the .exe
-
-
 ## vID makes it easy to read a csv or xlix file and convert an entire column of name values to unique id's. 
 ![Demo Image](images/selectCol.png  "vID")
 <ol>
